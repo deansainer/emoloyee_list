@@ -21,7 +21,7 @@ class Employee(models.Model):
     position_name = models.ForeignKey(Position, on_delete=models.CASCADE)
     email = models.EmailField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    photo = models.ImageField()
+    photo = models.ImageField(blank=True)
     birthday = models.DateField()
     phone = models.CharField(max_length=12)
 
