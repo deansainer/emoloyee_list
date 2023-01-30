@@ -1,46 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'employee_app/base.html' %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Employee List</title>
 </head>
-<body>
-
-{% extends 'employee_app/base.html' %}
-
-</body>
-</html>
-
 
 {% block body %}
 <div class="employee_list">
-<table class="table table-dark table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Employee ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Position</th>
-      <th scope="col">Birthday</th>
-      <th scope="col">Location</th>
-      <th scope="col">Email address</th>
-      <th scope="col">Phone number</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for employee in employees %}
-    <tr>
-      <th scope="row">{{employee.id}}</th>
-      <td>{{employee}}</td>
-      <td>{{employee.position_name}}</td>
-      <td>{{employee.birthday}}</td>
-      <td>{{employee.location}}</td>
-      <td>{{employee.email}}</td>
-      <td>{{employee.phone}}</td>
-      <td><a href="{% url 'view_employee' employee.id %}">👁️</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Location</th>
+            <th scope="col">Email address</th>
+            <th scope="col">Phone number</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+        <tr>
+            <th scope="row">{{employee.id}}</th>
+            <td>{{employee}}</td>
+            <td>{{employee.position_name}}</td>
+            <td>{{employee.birthday}}</td>
+            <td>{{employee.location}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phone}}</td>
+            <td><a href="{% url 'view_employee' employee.id %}">👁️</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}
