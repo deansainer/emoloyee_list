@@ -44,5 +44,16 @@ def delete_employee(request, employee_id):
     return redirect('/')
 
 
+def edit_employee(request, employee_id):
+    employee = Employee.objects.get(id=employee_id)
+    return redirect('/')
+
+
+def view_employee(request, employee_id):
+    employee = Employee.objects.get(id=employee_id)
+    context = {'employee': employee}
+    return render(request, 'employee_app/view_employee.html', context)
+
+
 
 

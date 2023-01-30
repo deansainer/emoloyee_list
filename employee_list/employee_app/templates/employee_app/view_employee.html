@@ -1,0 +1,20 @@
+{% extends 'employee_app/base.html' %}
+{% load static %}
+{% block body %}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{employee.photo.url}}" alt="..." />
+
+  <div class="card-body"><h4>{{employee}}</h4></div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Location: {{employee.location}}</li>
+    <li class="list-group-item">Position: {{employee.position_name}}</li>
+    <li class="list-group-item">Birthday: {{employee.birthday}}</li>
+    <li class="list-group-item">Email: {{employee.email}}</li>
+    <li class="list-group-item">Phone: {{employee.phone}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="edit"><button type="button" class="btn btn-primary">Primary</button></a>
+    <a href="{% url 'delete_employee' employee.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+  </div>
+</div>
+{% endblock %}
