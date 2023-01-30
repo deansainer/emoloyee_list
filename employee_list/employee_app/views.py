@@ -38,6 +38,11 @@ class NewEmployee(TemplateView):
             return render(request, self.template_name, context)
 
 
+def delete_employee(request, employee_id):
+    employee = Employee.objects.get(id=employee_id)
+    employee.delete()
+    return redirect('/')
+
 
 
 
